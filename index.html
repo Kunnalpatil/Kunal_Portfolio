@@ -375,24 +375,39 @@
             .hero h1 { font-size: 2.5rem; }
             .hero p { font-size: 1.2rem; }
             section { padding: 50px 20px; }
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            nav ul li {
+                margin-left: 0;
+                margin-bottom: 10px;
+            }
+            .skills-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+            .skills-grid .skill-tag {
+                width: 100%;
+                text-align: center;
+            }
+            .grid {
+                grid-template-columns: 1fr;
+            }
         }
 
-        /* Button Styles */
-        .link a {
-            display: inline-block;
-            padding: 10px 20px;
-            margin: 5px 0;
-            background: #f0f0f0; /* Light gray background */
-            border: 1px solid #000000; /* Black border */
-            border-radius: 20px;
-            color: #000000; /* Black text */
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .link a:hover {
-            background: #e0e0e0; /* Darker gray on hover */
-            transform: scale(1.05);
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 2rem; }
+            .hero p { font-size: 1rem; }
+            nav {
+                padding: 10px 20px;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+            .card {
+                padding: 20px;
+            }
         }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
