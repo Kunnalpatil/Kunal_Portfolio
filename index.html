@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kunal Patil - Data Scientist</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Geometric Shapes Animation */
+        @keyframes moveShapes {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+            100% {
+                transform: translateY(2000px) rotate(720deg); /* Increased distance */
+            }
+        }
+
+        .shape {
+            position: absolute;
+            top: -150px;
+            width: 100px;
+            height: 100px;
+            background: rgba(0, 0, 0, 0.1);
+            animation: moveShapes 10s linear infinite; /* Increased speed and duration */
+            opacity: 1; /* Ensure visibility */
+            z-index: -1; /* Ensure shapes are behind content */
+        }
+
+        .shape.circle {
+            border-radius: 50%;
+        }
+
+        .shape.square {
+            border-radius: 10%;
+        }
+
+        .shape.triangle {
+            width: 0;
+            height: 0;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+            border-top: 100px solid rgba(0, 0, 0, 0.1);
+            background: none;
+        }
+
+        .shape:nth-child(1) {
+            left: 5%;
+            animation-duration: 10s;
+            animation-delay: 0s;
+        }
+
+        .shape:nth-child(2) {
+            left: 10%;
+            animation-duration: 12s;
+            animation-delay: 1s;
+        }
+
+        .shape:nth-child(3) {
+            left: 15%;
+            animation-duration: 14s;
+            animation-delay: 2s;
+        }
+
+        .shape:nth-child(4) {
+            left: 20%;
+            animation-duration: 16s;
+            animation-delay: 3s;
+        }
+
+        .shape:nth-child(5) {
+            left: 25%;
+            animation-duration: 18s;
+            animation-delay: 4s;
+        }
+
+        .shape:nth-child(6) {
+            left: 30%;
+            animation-duration: 20s;
+            animation-delay: 5s;
+        }
+
+        .shape:nth-child(7) {
+            left: 35%;
+            animation-duration: 22s;
+            animation-delay: 6s;
+        }
+
+        .shape:nth-child(8) {
+            left: 40%;
+            animation-duration: 24s;
+            animation-delay: 7s;
+        }
+
+        .shape:nth-child(9) {
+            left: 45%;
+            animation-duration: 26s;
+            animation-delay: 8s;
+        }
+
+        .shape:nth-child(10) {
+            left: 50%;
+            animation-duration: 28s;
+            animation-delay: 9s;
+        }
+
+        .shape:nth-child(11) {
+            left: 55%;
+            animation-duration: 30s;
+            animation-delay: 10s;
+        }
+
+        .shape:nth-child(12) {
+            left: 60%;
+            animation-duration: 32s;
+            animation-delay: 11s;
+        }
+
+        .shape:nth-child(13) {
+            left: 65%;
+            animation-duration: 34s;
+            animation-delay: 12s;
+        }
+
+        .shape:nth-child(14) {
+            left: 70%;
+            animation-duration: 36s;
+            animation-delay: 13s;
+        }
+
+        .shape:nth-child(15) {
+            left: 75%;
+            animation-duration: 38s;
+            animation-delay: 14s;
+        }
+
+        .shape:nth-child(16) {
+            left: 80%;
+            animation-duration: 40s;
+            animation-delay: 15s;
+        }
+
+        .shape:nth-child(17) {
+            left: 85%;
+            animation-duration: 42s;
+            animation-delay: 16s;
+        }
+
+        .shape:nth-child(18) {
+            left: 90%;
+            animation-duration: 44s;
+            animation-delay: 17s;
+        }
+
+        .shape:nth-child(19) {
+            left: 95%;
+            animation-duration: 46s;
+            animation-delay: 18s;
+        }
+
+        .shape:nth-child(20) {
+            left: 100%;
+            animation-duration: 48s;
+            animation-delay: 19s;
+        }
+
+        body {
+            background: #f5f5f5; /* Off-white base */
+            color: #000000; /* Black text */
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative; /* For shapes positioning */
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(245, 245, 245, 0.95); /* Off-white background */
+            z-index: 1000;
+            border-bottom: 1px solid #000000; /* Black border */
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            color: #000000; /* Black text */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #555555; /* Darker gray on hover */
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 70vh; /* Decreased height */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: #000000; /* Black text */
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            max-width: 600px;
+            margin: 0 auto;
+            color: #000000; /* Black text */
+        }
+
+        /* Sections */
+        section {
+            padding: 50px 50px; /* Decreased padding */
+            position: relative;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            position: relative;
+            display: inline-block;
+            color: #000000; /* Black text */
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            background: #000000; /* Black underline */
+            bottom: -10px;
+            left: 0;
+        }
+
+        /* Grid Layout */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: #ffffff; /* White background */
+            padding: 30px;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            border: 1px solid #dddddd; /* Light gray border */
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            background: #f0f0f0; /* Light gray background on hover */
+            border-color: #000000; /* Black border on hover */
+        }
+
+        /* Project Links - Make entire card clickable */
+        .card a {
+            color: #000000; /* Black text */
+            text-decoration: none;
+            display: block; /* Makes the entire card area clickable */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth pop-out and visibility */
+        }
+
+        .card a:hover {
+            transform: translateY(-5px); /* Pops out more noticeably */
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow for visibility */
+        }
+
+        /* Ensure nested elements don't override link styling */
+        .card a h3, .card a p {
+            margin: 0;
+            color: #000000; /* Black text */
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .skill-tag {
+            background: #f0f0f0; /* Light gray background */
+            padding: 10px 20px;
+            border-radius: 20px;
+            border: 1px solid #000000; /* Black border */
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: #e0e0e0; /* Darker gray on hover */
+            transform: scale(1.05);
+        }
+        /* About Me Section */
+        .about-content {
+            max-width: 1700px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .about-content p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #000000; /* Black text */
+        }
+
+        /* Social Links */
+        .social-links a {
+            color: #000000; /* Black text */
+            margin: 0 15px;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #555555; /* Darker gray on hover */
+            transform: translateY(-3px);
+        }
+
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .hero p { font-size: 1.2rem; }
+            section { padding: 50px 20px; }
+        }
+
+        /* Button Styles */
+        .link a {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 5px 0;
+            background: #f0f0f0; /* Light gray background */
+            border: 1px solid #000000; /* Black border */
+            border-radius: 20px;
+            color: #000000; /* Black text */
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .link a:hover {
+            background: #e0e0e0; /* Darker gray on hover */
+            transform: scale(1.05);
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Geometric Shapes -->
+    <div class="shape circle"></div>
+    <div class="shape square"></div>
+    <div class="shape triangle"></div>
+    <div class="shape circle"></div>
+    <div class="shape square"></div>
+    <div class="shape triangle"></div>
+    <div class="shape circle"></div>
+    <div class="shape square"></div>
+    <div class="shape triangle"></div>
+    <div class="shape circle"></div>
+    <div class="shape circle"></div>
+    <div class="shape square"></div>
+    <div class="shape triangle"></div>
+    <div class="shape circle"></div>
+    <div class="shape square"></div>
+    <div class="shape triangle"></div>
+    <div class="shape circle"></div>
+    <div class="shape square"></div>
+    <div class="shape triangle"></div>
+    <div class="shape circle"></div>
+    <nav>
+        <div class="logo">Kunal Patil</div>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#skills">Technical Skills</a></li>
+            <li><a href="#projects">ML Projects</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Kunal Patil</h1>
+            <p>Data Alchemist - Because turning raw, messy data into gold-standard insights is just medieval magic.</p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/kunalpatil104">linkedin<i class="fab fa-github"></i></a>
+                <a href="https://github.com/Kunnalpatil">Github<i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-kaggle"></i></a>
+            </div>
+        </div>
+    </section>
+    <section id="about" class="fade-in" style="padding-top: 10px;">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+        <p>Meet Your Friendly Neighbourhood Data Wrangler, a supposed master at turning dumpster-fire datasets into "actionable insights" for business growth—because buzzwords pay the bills. I juggle Python, SQL, and overhyped machine learning/generative AI tricks, excelling at predictive modeling and stats so dazzling they might actually mean something. With cutting-edge AI and a knack for spotting trends (or mirages), I churn out "impactful" solutions and innovative strategies that sound brilliant—results may vary. Peek at my GitHub if you’re brave enough.</p>
+        </div>
+    </section>
+
+    <section id="skills" class="fade-in">
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-tag">Python</div>
+            <div class="skill-tag">Scikit-learn</div>
+            <div class="skill-tag">Deep Learning</div>
+            <div class="skill-tag">NLP</div>
+            <div class="skill-tag">Data Visualization</div>
+            <div class="skill-tag">Data Analytics</div>
+            <div class="skill-tag">Pandas</div>
+            <div class="skill-tag">Numpy</div>
+            <div class="skill-tag">Excel</div>
+            <div class="skill-tag">Matplotlib</div>
+            <div class="skill-tag">Seaborn</div>
+            <div class="skill-tag">Machine Learning</div>
+            <div class="skill-tag">TensorFlow/Keras</div>
+            <div class="skill-tag">GenAI</div>
+            <div class="skill-tag">Langchain</div>
+            <div class="skill-tag">HuggingFace</div>
+            <div class="skill-tag">SQL (MYSQL, Oracle)</div>
+            <div class="skill-tag">Git/Github</div>
+            <div class="skill-tag">Streamlit</div>
+        </div>
+    </section>
+
+    <!-- <section id="experience" class="fade-in">
+        <h2 class="section-title">Work Experience</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Senior ML Engineer</h3>
+                <p>AI Tech Corp | 2022 - Present</p>
+                <p>Developed production-grade ML models for predictive analytics...</p>
+            </div>
+            <div class="card">
+                <h3>Data Scientist</h3>
+                <p>Data Insights Inc | 2020 - 2022</p>
+                <p>Built NLP models for sentiment analysis and text classification...</p>
+            </div>
+        </div>
+    </section> -->
+
+    <section id="projects" class="fade-in">
+        <h2 class="section-title">ML Projects</h2>
+        <div class="grid" style="grid-template-columns: repeat(2, 1fr);">
+            <div class="card">
+                <h3>RAG Chatbot with PDF Uploads and Chat History</h3>
+                <span class="link"><a href="https://github.com/Kunnalpatil/RAG-chatbot-PDF-and-conv-history">GitHub</a></span>
+                <span class="link"><a href="https://rag-chatbot-pdf-and-conv-history.streamlit.app">Demo</a></span>
+                    <ul>
+                        <li><strong>Project Overview</strong>: Developed a Streamlit web app for uploading PDFs and querying their content using Retrieval-Augmented Generation (RAG).</li>
+                        <li><strong>PDF Handling</strong>: Used PyPDFLoader and RecursiveCharacterTextSplitter to process and split PDFs into chunks.</li>
+                        <li><strong>AI Integration</strong>: Leveraged ChatGroq with selectable models (gemma2-9b-it, llama-3.1-8b-instant) for generating responses.</li>
+                        <li><strong>Retrieval</strong>: Employed HuggingFaceEmbeddings and Chroma for vector-based document retrieval.</li>
+                        <li><strong>Chat Features</strong>: Implemented session-based chat history with ChatMessageHistory for context-aware conversations.</li>
+                        <li><strong>UI</strong>: Designed an intuitive interface with PDF uploads, model selection, and query input.</li>
+                    </ul>
+            </div>
+            <div class="card">
+                <h3>Data Science Salary Estimator</h3>
+                <span class="link"><a href="https://github.com/Kunnalpatil/Data-science-salary-">GitHub</a></span>
+                <span class="link"><a href="https://kunnalpatil-data-science-salary--estimator-wiykfc.streamlit.app/">Demo</a></span>
+                <ul>
+                    <li><strong>Project Overview</strong>: Developed a salary prediction tool for data science roles using Glassdoor data, focusing on how skills like Python, Excel, AWS, and Spark impact salaries.</li>
+                    <li><strong>Data Cleaning</strong>: Parsed salary data, extracted company ratings, and engineered features for skills, job location, company age, and job description length.</li>
+                    <li><strong>Exploratory Analysis</strong>: Conducted exploratory data analysis (EDA), revealing correlations between job description length and company age, and visualizing job role distributions across sectors.</li>
+                    <li><strong>Model Building</strong>: Evaluated Lasso Regression and RandomForestRegressor, optimized both using RandomSearchCV, and selected RandomForest for its superior performance (MAE: 13.69).</li>
+                    <li><strong>Deployment</strong>: Deployed the final model on Streamlit, creating an accessible tool for salary estimation.</li>
+                    <li><strong>Tools Used</strong>: Leveraged pandas, numpy, sklearn, matplotlib, seaborn, and pickle for data processing, modeling, and deployment.</li>
+                  </ul>
+            </div>
+            <div class="card">
+                <h3>Customer Churn Prediction (Imbalanced dataset)</h3>
+                <span class="link"><a href="https://github.com/Kunnalpatil/customer-churn-prediction">GitHub</a></span>
+                <ul>
+                    <li><strong>Project Overview</strong>: Developed a predictive model for customer churn using an imbalanced dataset (4000 "no" vs. 521 "yes") targeting subscription to a term deposit.</li>
+                    <li><strong>Data Insights</strong>: Conducted exploratory analysis, revealing outliers in balance and duration, job type as a key predictor, and a low 17% defaulter rate, with further details in the notebook.</li>
+                    <li><strong>Data Preprocessing</strong>: Transformed binary features (yes/no) to 1/0, encoded categorical variables (e.g., job, education) with OneHotEncoder, and scaled numeric features using StandardScaler.</li>
+                    <li><strong>Model Selection</strong>: Evaluated multiple models and selected GradientBoostingClassifier, training it on both imbalanced and balanced datasets via BalancedBaggingClassifier.</li>
+                    <li><strong>Performance Outcomes</strong>: First model accurately identified churners (non-subscribers); second model, with balanced data, effectively detected subscribers despite their minority status.</li>
+                    <li><strong>Business Value</strong>: Provided two tailored models, allowing businesses to prioritize either churn detection or subscriber identification based on strategic needs.</li>
+                  </ul>
+            </div>
+            <div class="card">
+                <h3>Time Series Analysis</h3>
+                <span class="link"><a href="https://github.com/Kunnalpatil/Time-series-">GitHub</a></span>
+                <ul>
+                    <li><strong>Project Overview</strong>: Developed Jupyter notebooks for time series analysis, focusing on stock prices and trading volumes of companies such as Google (GOOGL), Tesla (TSLA), Ford, and GM using Python.</li>
+                    <li><strong>Data Retrieval</strong>: Utilized <code>pandas_datareader</code> to retrieve historical stock data, enabling detailed analysis of prices, volumes, and market trends.</li>
+                    <li><strong>Exploratory Analysis</strong>: Conducted initial data exploration, visualized stock price trends, and examined trading volumes to highlight significant trading days.</li>
+                    <li><strong>Technical Analysis</strong>: Implemented moving averages (simple and exponential), calculated market capitalization, and used rolling and expanding windows to study price trends and fluctuations.</li>
+                    <li><strong>Correlation & Volatility</strong>: Explored correlations between stock prices with scatter matrices, computed daily percentage changes, and assessed volatility using histograms and KDE plots.</li>
+                    <li><strong>Advanced Insights</strong>: Created box plots to compare stock returns, calculated cumulative returns, and performed time period-specific analyses to reveal trends during key intervals.</li>
+                  </ul>
+            </div>
+            <div class="card">
+                <h3>IMDB Movie Review Sentiment Analysis</h3>
+                <span class="link"><a href="https://github.com/Kunnalpatil/Deeplearning_projects">GitHub</a></span>
+                <ul>
+                    <li><strong>Project Overview</strong>: Developed a Simple Recurrent Neural Network (RNN) to classify IMDB movie reviews as positive or negative based on their text content.</li>
+                    <li><strong>Core Technologies</strong>: Utilized TensorFlow for model development and Streamlit for creating an interactive web application.</li>
+                    <li><strong>Data Preprocessing</strong>: Prepared the IMDB dataset using tokenization to break text into words and padding to standardize input lengths.</li>
+                    <li><strong>Model Development</strong>: Designed and trained a Simple RNN to capture sequential patterns in text for accurate sentiment classification.</li>
+                    <li><strong>NLP Exploration</strong>: Investigated word embeddings to understand text representation within the model.</li>
+                    <li><strong>Interactive Deployment</strong>: Deployed the model via a Streamlit app, enabling users to input reviews and receive real-time sentiment predictions.</li>
+                  </ul>
+            </div>
+            <div class="card">
+                <h3>Movie Recommendation System</h3>
+                <span class="link"><a href="https://github.com/Kunnalpatil/Movie-Recommendation-system">GitHub</a></span>
+                <ul>
+                    <li><strong>Project Overview</strong>: Developed a content-based movie recommendation system utilizing movie data from the TMDB API and natural language processing (NLP) techniques to generate personalized recommendations.</li>
+                    <li><strong>Data Collection</strong>: Collected movie metadata, such as overviews, cast, and genre details, directly from the TMDB API to serve as the foundation for the recommendation system.</li>
+                    <li><strong>Data Preprocessing</strong>: Processed and cleaned the raw data by removing spaces and applying stemming to standardize text, ensuring consistency for analysis.</li>
+                    <li><strong>Feature Extraction</strong>: Employed NLP methods to extract key features from the movie data, creating unique, meaningful representations for each movie.</li>
+                    <li><strong>Similarity Calculation</strong>: Used cosine similarity to measure the relationships between movies based on their extracted features, enabling accurate similarity comparisons.</li>
+                    <li><strong>Recommendation Functionality</strong>: Built a recommendation function that takes a movie title as input and returns a list of the most similar movies based on calculated similarity scores.</li>
+                  </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Commented out achievements section -->
+    <!-- <section id="achievements" class="fade-in">
+        <h2 class="section-title">Achievements</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Kaggle Grandmaster</h3>
+                <p>Top 1% in ML Competitions</p>
+            </div>
+            <div class="card">
+                <h3>Patent: AI Algorithm</h3>
+                <p>Novel approach to neural network optimization</p>
+            </div>
+        </div>
+    </section> -->
+
+    <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
+    <script>
+        // Scroll animation
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        fadeElements.forEach(element => {
+            observer.observe(element);
+        });
+
+        // Remove neural network animation script
+    </script>
+</body>
+</html>
